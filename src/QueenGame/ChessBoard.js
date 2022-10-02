@@ -4,12 +4,13 @@ import Icon from '../Icons.js';
 import IsSafe from './IsSafe.js';
 import Winning from './Winning.js';
 
-function ChessBoard({BoardSize=3}) {
+function ChessBoard({BoardSize=3,maxSize}) {
 
     const [size , setSize] = useState(0);
     const [board , setBoard] = useState([]);
     const [startGame,setStartGame] = useState(true);
-   const [complete , setComplete] = useState(false)
+   const [complete , setComplete] = useState(false);
+   const max = maxSize;
     
 
     useEffect(()=>{
@@ -113,7 +114,7 @@ if(check.length === size){
             <h3> WELCOME , Soon to be a Genius Person , in this QUEEN PLACING Game !! </h3>
 
 <div>
-    <label> Its a simple game , all you have to do is </label>
+    <label> Its a simple game , all you have to do is - </label>
     <ul>
         <li>
             Place a queen in each row
@@ -145,7 +146,7 @@ if(check.length === size){
         
         <div className='wrap-inner'>
 <div className='board'>
-{complete?<Winning restart={reStart} levelUp={Levelup} finish={size<7?false:true}/>:<>
+{complete?<Winning restart={reStart} levelUp={Levelup} finish={size<max?false:true}/>:<>
    {
 
 board.map((row,index)=>(

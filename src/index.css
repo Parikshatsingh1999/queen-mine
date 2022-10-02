@@ -114,7 +114,33 @@ font-weight: 600;
     cursor: pointer;
 }
 
+.overbox .wincup{display:block;margin:auto;}
+.gamespace svg{max-width:100%;}
+
 @keyframes animate{
   from {transform: translateY(-100%);}
   to {transform: translateY(0);}
+}
+
+@media screen and (max-width:768px){
+
+  .instructions-inner {
+    width: 95%;
+}
+.instruction-wrapper {
+
+  width: 90%;
+}
+
+.instruction-wrapper ul {
+  width: 80%;
+}
+
+.startbox label {width:80%;}
+.playbtn{width:80%;}
+.wrap-inner{width:95%;}
+.cell {
+  width: 25%;
+}
+.overbox label{width:80%;}
 }

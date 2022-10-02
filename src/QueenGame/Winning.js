@@ -11,7 +11,7 @@ function Winning({finish,levelUp,restart}) {
 
 
     { finish?<div className='overbox'><div> You Are A Genius !! Play again and look for More paths
-     {Icons.cup}
+    <div className='wincup'> {Icons.cup} </div>
      </div>
      <div>
      <label onClick={restart}> Restart !! {Icons.restart} </label>
