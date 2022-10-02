@@ -11,3 +11,110 @@ code {
   font-family: source-code-pro, Menlo, Monaco, Consolas, 'Courier New',
     monospace;
 }
+
+.main-wrap{width: 100%;display: flex;justify-content: space-around;flex-wrap: wrap;
+  height: 90vh;
+  margin-top:auto;
+  align-items: center;}
+body{background: grey;}
+.board{border:2px solid darkgrey;background-color: aliceblue;margin-bottom:2% ;}
+.board-row{width: 100%;display: flex;}
+.cell{width:100px;height: 100px;display: flex;
+justify-content: center;
+align-items: center;}
+.board-row:nth-child(odd) .cell:nth-child(odd){background-color: black;}
+.board-row:nth-child(even) .cell:nth-child(even){background-color: black;}
+.main-inner h2{display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 2% 0;
+  }
+.main-inner{
+  padding: 2%;
+}
+
+.playbtn{border: 2px solid grey;
+padding: 2%;
+width: 40%;
+text-align: center;
+border-radius: 16px;
+background: antiquewhite;
+margin: auto;
+cursor: pointer;
+font-size: 18px;
+font-weight: 600;
+}
+
+.playbtn label{cursor: pointer;}
+
+.overbox{
+  text-align: center;
+    font-size: 24px;
+    font-weight: 600;
+   
+    padding: 2% 0;
+}
+
+.instruction-wrapper{
+  padding:2%;
+  width: 80%;
+  margin:auto;
+  background:white;font-weight: 600;font-size: 20px;
+  text-align:center;
+  border-radius: 16px;
+}
+
+.instruction-wrapper ul{
+  width: 60%;
+  margin: auto;
+  text-align: left;
+  padding: 2% 0;
+}
+
+.instruction-main{
+  position: absolute;
+    width: 100%;
+    height: 100vh;
+    background: rgba(0,0,0,0.8);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.instructions-inner{
+  width:80%;
+}
+
+.startbox label{
+  box-shadow: rgba(0, 0, 0, 0.25) 0px 54px 55px, rgba(0, 0, 0, 0.12) 0px -12px 30px, rgba(0, 0, 0, 0.12) 0px 4px 6px, rgba(0, 0, 0, 0.17) 0px 12px 13px, rgba(0, 0, 0, 0.09) 0px -3px 5px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+
+  width: 40%;
+  margin: auto;
+  border-radius: 16px;
+  cursor: pointer;
+}
+
+.instruction-wrapper{
+  transform: translateY(-100%);
+  animation: animate 2s ease forwards;
+
+}
+
+.overbox label{
+  box-shadow: rgba(0, 0, 0, 0.25) 0px 54px 55px, rgba(0, 0, 0, 0.12) 0px -12px 30px, rgba(0, 0, 0, 0.12) 0px 4px 6px, rgba(0, 0, 0, 0.17) 0px 12px 13px, rgba(0, 0, 0, 0.09) 0px -3px 5px;
+  display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 40%;
+    margin: auto;
+    border-radius: 16px;
+    cursor: pointer;
+}
+
+@keyframes animate{
+  from {transform: translateY(-100%);}
+  to {transform: translateY(0);}
+}
