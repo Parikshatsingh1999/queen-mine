@@ -116,6 +116,17 @@ font-weight: 600;
 
 .overbox .wincup{display:block;margin:auto;}
 .gamespace svg{max-width:100%;}
+.cell[data-wrong="true"]{animation: wrong 1s ease backwards;}
+
+@keyframes wrong {
+  
+  from{
+    background: rgba(0, 0, 0,0.8);
+  }to{
+   background: rgba(253, 92, 99,0.8);
+  }
+
+}
 
 @keyframes animate{
   from {transform: translateY(-100%);}

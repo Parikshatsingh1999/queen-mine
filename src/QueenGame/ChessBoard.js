@@ -10,6 +10,7 @@ function ChessBoard({BoardSize=3,maxSize}) {
     const [board , setBoard] = useState([]);
     const [startGame,setStartGame] = useState(true);
    const [complete , setComplete] = useState(false);
+   const [wrongPath ,setWrongPath] = useState([]); 
    const max = maxSize;
     
 
@@ -87,21 +88,34 @@ if(check.length === size){
             prev[column][row]=0;
             return JSON.parse(JSON.stringify(prev));
         })
+        return;
     }
+   let safe =  IsSafe(column,row,board,size);
    
-    if(IsSafe(column,row,board,size)){
-      
-       setBoard(prev=>{
+    if(safe.success){
+        setWrongPath([]);
+         setBoard(prev=>{
          prev[column][row]="Q";
          
          return JSON.parse(JSON.stringify(prev));
+
      })
+    }else{
+
+
+        setWrongPath(JSON.parse(JSON.stringify(safe.path[safe.path.length-1])));
+        setTimeout(()=>{setWrongPath([])},1000);
+        
     }
 
 
-   
-    
+   }
 
+   const isWrong = (index,ind)=>{
+    let result = false;
+    
+    if(JSON.stringify(wrongPath).includes(JSON.stringify([index,ind]))) result = true;
+    return result;
    }
 
   return (
@@ -153,7 +167,7 @@ board.map((row,index)=>(
 <div className="board-row" key={index}>
     {
 row.map((col,ind)=>(
-    <div className="cell" onClick={()=>{adjustBoard(index,ind);}} key={index+" "+ind}>{
+    <div className="cell" data-wrong={isWrong(index,ind)?true:false} onClick={()=>{adjustBoard(index,ind);}} key={index+" "+ind}>{
         col !== 0 ?Icon.queen:" "
     } </div>
 ))
